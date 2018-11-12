@@ -5,6 +5,9 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Building Stage"
+				sh 'mvn --version'
+				sh 'pwd;ls -a'
+				
 			}
 		}
 		

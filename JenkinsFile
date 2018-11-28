@@ -16,11 +16,11 @@ pipeline {
 			}
 		}
 		
-		stage('Test') {
-			steps {
-				echo "mvn test"
-			}
+		stage ('Archive artifacts') {
+		      steps {
+			sh 'echo "Archiving the artifacts ...."'
+			archiveArtifacts 'target/*.jar'
+		      }
 		}
 	}
-}	
-		
+}

@@ -2,18 +2,23 @@ pipeline {
 	agent any
 	
 	stages {
+		stage('Clean Up') {
+			steps {
+				echo "Cleaning Up" 
+				sh 'mvn clean'
+			}
+		}
 		stage('Build') {
 			steps {
 				echo "Building Stage"
-				sh 'mvn --version'
-				sh 'pwd;ls -a'
+				sh 'mvn install'
 				
 			}
 		}
 		
 		stage('Test') {
 			steps {
-				echo "Testing"
+				echo "mvn test"
 			}
 		}
 	}
